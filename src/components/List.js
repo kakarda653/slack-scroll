@@ -105,7 +105,7 @@ class List extends Component {
 
     createListEntry = (element, i) => {
         const {elements} = this.state;
-        let image = element.image != null ? <div style={{width: '100%', height: '200px'}}><img alt={"object"} style={{height:'100%',maxWidth:'100%'}} src={element.image} /></div> : "";
+        let image = element.image != null ? <div className={"image-wrapper"}><img alt={"object"} className={"image"} src={element.image} /></div> : "";
         return <div style={{top: element.top}} key={i.toString()} className="element">{elements[i].data}<br />{image}</div>
     };
 
@@ -138,7 +138,7 @@ class List extends Component {
 
     render() {
         return (
-            <div style={{height: '100%'}}>
+            <div className={"container-wrapper"}>
                 <div onScroll={({target: {scrollTop}}) => {this.onListScrolling(scrollTop)}} ref={(div) => {this._container = div;}} className="container">
                     <ul id={"list"} className={"list"} ref={(div) => {this._list = div;}}>
                         {this.renderItems()}
